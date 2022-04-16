@@ -1,0 +1,27 @@
+﻿<Window x:Class="cbp.ChangeWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cbp"
+        mc:Ignorable="d"
+        Title="ChangeWin" Height="350" Width="400">
+    <Grid>
+        <StackPanel Width="200" VerticalAlignment="Center">
+            <TextBlock>Компания:</TextBlock>
+            <ComboBox Name="Comboboxcompany"></ComboBox>
+            <TextBlock>Тип заявки:</TextBlock>
+            <ComboBox Name="Comboboxtype"></ComboBox>
+            <TextBlock>Срочность:</TextBlock>
+            <TextBox Name="UrgencyTB"></TextBox>
+            <TextBlock>Контакт:</TextBlock>
+            <TextBox Name="ContactTB"></TextBox>
+            <TextBlock>Описание:</TextBlock>
+            <TextBox Name="DescriptionTB" Height="50" TextWrapping="Wrap"></TextBox>
+            <TextBlock>Исполнитель:</TextBlock>
+            <ComboBox Name="ComboboxExecutor"></ComboBox>
+            <Button Name="AddBT" Click="AddBT_Click">Записать</Button>
+            <Button Name="DelBT" Click="DelBT_Click">Удалить</Button>
+        </StackPanel>
+    </Grid>
+</Window>

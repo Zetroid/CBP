@@ -1,0 +1,64 @@
+﻿<Page x:Class="cbp.ListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:cbp"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ListPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBox Name="SearchTB" Width="350" Height="30" TextChanged="SearchTB_TextChanged"></TextBox>
+            <ComboBox Name="Combofilter" Width="160" Height="30" Margin="10,0,10,0" SelectionChanged="Combofilter_SelectionChanged"></ComboBox>
+            <StackPanel Margin="0,35,0,0">
+                <ComboBox Name="Combosort" Width="160" Height="30" SelectionChanged="Combosort_SelectionChanged">
+                    <ComboBoxItem>Номер заявки возр</ComboBoxItem>
+                    <ComboBoxItem>Срочно убыв</ComboBoxItem>
+                    <ComboBoxItem>Срочно возр</ComboBoxItem>
+                    <ComboBoxItem>Номер заявки убыв</ComboBoxItem>
+                </ComboBox>
+                <Button Name="AddBT" Width="160" Height="30" Margin="0 3" Click="AddBT_Click">Добавить</Button>
+            </StackPanel>
+        </StackPanel>
+        <ListView Grid.Row="1" Name="Listview" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="700" Height="100">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Номер заявки: "></TextBlock>
+                                    <TextBlock Text="{Binding ID}"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Тип заявки: "></TextBlock>
+                                    <TextBlock Text="{Binding RequestType.RequestTitle}"></TextBlock>
+                                </StackPanel>
+                                <TextBlock Text="{Binding Urgency}"></TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Контакт: "></TextBlock>
+                                    <TextBlock Text="{Binding Contact}"></TextBlock>
+                                </StackPanel>
+                                </StackPanel>
+                            <StackPanel Margin="30,0,0,0">
+                                <TextBlock Text="Описание: "></TextBlock>
+                                <TextBlock  Text="{Binding Description}"></TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Исполнитель: "></TextBlock>
+                                    <TextBlock Text="{Binding Executor.Name}"></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                            <Button Name="ChangeBT" Width="100" Height="30" Margin="100 0" Uid="{Binding ID}" Click="ChangeBT_Click">Редактировать</Button>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
